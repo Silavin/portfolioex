@@ -15,4 +15,8 @@ if (isNotInProduction) {
   );
 }
 
+app.post("/", function(req, res, next) {
+  res.send(req.body);
+});
+
 module.exports = app;
