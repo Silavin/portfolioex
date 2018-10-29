@@ -1,0 +1,11 @@
+{
+  "name": "portfolioex",
+  "version": "1.0.0",
+  "description": "my portfolio",
+  "main": "index.js",
+  "scripts": {
+    "gc": "git add *&&git add .&&git commit -m"
+  },
+  "author": "Silavin",
+  "license": "Not for distrubtion and sales."
+}
