@@ -1,22 +1,35 @@
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const User = require("./models/user/user");
 
-const isNotInProduction = !process.env.WORK_STATUS === "production";
-
-if (isNotInProduction) {
+const isInProduction = process.env.WORK_STATUS === "production";
+if (isInProduction === false) {
   mongoose.connect(
     process.env.MONGODB_URI,
-    {
-      useNewUrlParser: true
-    }
+    { useNewUrlParser: true }
   );
 }
+mongoose.connection.on("connected", function() {
+  console.log("Mongoose default connection open to " + process.env.MONGODB_URI);
+});
+mongoose.connection.on("error", function(err) {
+  console.log("Mongoose default connection error: " + err);
+});
+mongoose.connection.on("disconnected", function() {
+  console.log("Mongoose default connection disconnected");
+});
 
-app.post("/", function(req, res, next) {
-  res.send(req.body);
+app.use(express.json());
+
+app.post("/", async function(req, res, next) {
+  const user = new User();
+  user.username = req.body.username;
+
+  await user.save();
+  res.json({ message: "Hello" });
 });
 
 module.exports = app;

@@ -7,5 +7,9 @@
     "gc": "git add *&&git add .&&git commit -m"
   },
   "author": "Silavin",
-  "license": "Not for distrubtion and sales."
+  "license": "Not for distrubtion and sales.",
+  "devDependencies": {
+    "eslint": "^5.8.0"
+  },
+  "dependencies": {}
 }
