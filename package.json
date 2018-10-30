@@ -4,7 +4,9 @@
   "description": "my portfolio",
   "main": "index.js",
   "scripts": {
-    "gc": "git add *&&git add .&&git commit -m"
+    "gc": "git add *&&git add .&&git commit -m",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Silavin",
   "license": "Not for distrubtion and sales.",

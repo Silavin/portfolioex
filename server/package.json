@@ -15,5 +15,8 @@
     "express-jwt": "^5.3.1",
     "mongoose": "^5.3.7",
     "mongoose-unique-validator": "^2.0.2"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^2.6.2"
   }
 }

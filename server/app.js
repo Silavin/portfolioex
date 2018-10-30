@@ -13,17 +13,21 @@ if (isInProduction === false) {
   );
 }
 mongoose.connection.on("connected", function() {
+  //eslint-disable-next-line
   console.log("Mongoose default connection open to " + process.env.MONGODB_URI);
 });
 mongoose.connection.on("error", function(err) {
+  //eslint-disable-next-line
   console.log("Mongoose default connection error: " + err);
 });
 mongoose.connection.on("disconnected", function() {
+  //eslint-disable-next-line
   console.log("Mongoose default connection disconnected");
 });
 
 app.use(express.json());
 
+//eslint-disable-next-line
 app.post("/", async function(req, res, next) {
   const user = new User();
   user.username = req.body.username;

@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
-const mockMongoDB = require("mon");
+const mockMongoDB = require("mongodb-memory-server").default;
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
 let mongoServer;
 
 const setUpServer = async () => {
-  mongoServer = mockMongoDB();
+  mongoServer = new mockMongoDB();
   const mongoURI = await mongoServer.getConnectionString();
 
   const fakeDBEstablished = () => {
