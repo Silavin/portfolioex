@@ -5,7 +5,9 @@ let user;
 let mockUser = {
   username: "Testing",
   fullname: "Test full name",
-  email: "test email"
+  email: "test email",
+  passwordSalt: "salty",
+  passwordHash: "hash"
 };
 
 beforeAll(async () => {
@@ -23,9 +25,14 @@ describe("User Model is Functional", () => {
 });
 
 describe("User Model has Required Fields", () => {
-  const { username, fullname, email } = mockUser;
+  const { username, fullname, email, passwordSalt, passwordHash } = mockUser;
   test("username is required", async () => {
-    const mockUser2 = { fullname, email };
+    const mockUser2 = {
+      fullname,
+      email,
+      passwordSalt,
+      passwordHash
+    };
     const user2 = new User(mockUser2);
 
     await expect(user2.save()).rejects.toThrow(
@@ -33,7 +40,7 @@ describe("User Model has Required Fields", () => {
     );
   });
   test("fullname is required", async () => {
-    const mockUser2 = { username, email };
+    const mockUser2 = { username, email, passwordSalt, passwordHash };
     const user2 = new User(mockUser2);
 
     await expect(user2.save()).rejects.toThrow(
@@ -42,17 +49,33 @@ describe("User Model has Required Fields", () => {
   });
 
   test("email is required", async () => {
-    const mockUser2 = { username, fullname };
+    const mockUser2 = { username, fullname, passwordSalt, passwordHash };
     const user2 = new User(mockUser2);
 
     await expect(user2.save()).rejects.toThrow(
       "field email is requied to be filled"
     );
   });
+  test("passwordSalt is required", async () => {
+    const mockUser2 = { username, fullname, email, passwordHash };
+    const user2 = new User(mockUser2);
+
+    await expect(user2.save()).rejects.toThrow(
+      "field passwordSalt is requied to be filled"
+    );
+  });
+  test("passwordHash is required", async () => {
+    const mockUser2 = { username, fullname, email, passwordSalt };
+    const user2 = new User(mockUser2);
+
+    await expect(user2.save()).rejects.toThrow(
+      "field passwordHash is requied to be filled"
+    );
+  });
 });
 
 describe("User Model has Unique Values", () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     user.save();
   });
   const mockUser2 = {
@@ -61,11 +84,12 @@ describe("User Model has Unique Values", () => {
     email: "test2@email.com"
   };
 
-  const { username, fullname, email } = mockUser;
+  const { username, fullname, email, passwordSalt } = mockUser;
 
   test("username is unique", async () => {
     mockUser2.username = username;
     const user2 = new User(mockUser2);
+
     await expect(user2.save()).rejects.toThrow(
       "username: the following fields must be unique"
     );
@@ -73,6 +97,7 @@ describe("User Model has Unique Values", () => {
   test("fullname is unique", async () => {
     mockUser2.fullname = fullname;
     const user2 = new User(mockUser2);
+
     await expect(user2.save()).rejects.toThrow(
       "fullname: the following fields must be unique"
     );
@@ -80,8 +105,54 @@ describe("User Model has Unique Values", () => {
   test("email is unique", async () => {
     mockUser2.email = email;
     const user2 = new User(mockUser2);
+
     await expect(user2.save()).rejects.toThrow(
       "email: the following fields must be unique"
     );
+  });
+  test("passwordSalt is unique", async () => {
+    mockUser2.passwordSalt = passwordSalt;
+    const user2 = new User(mockUser2);
+
+    await expect(user2.save()).rejects.toThrow(
+      "passwordSalt: the following fields must be unique"
+    );
+  });
+});
+
+describe("Setting and Validation of Password", () => {
+  const { username, fullname, email } = mockUser;
+  const user2 = new User({ username, fullname, email });
+  const password = "passwordTest";
+
+  test("able to set passwordHash and passwordSalt", () => {
+    expect(user2.passwordSalt).toBeUndefined();
+    expect(user2.passwordHash).toBeUndefined();
+
+    user2.setPassword(password);
+
+    expect(user2.passwordSalt).toBeDefined();
+    expect(user2.passwordSalt).not.toBeNull();
+    expect(user2.passwordHash).toBeDefined();
+    expect(user2.passwordHash).not.toBeNull();
+  });
+
+  it("should be able to verify user password afterwards", () => {
+    expect(user2.validPassword(password)).toBeTruthy();
+  });
+});
+
+describe("JWT Tokens", () => {
+  beforeEach(async () => {
+    await user.save();
+  });
+
+  test("JWT token can be generated and verified", () => {
+    const token = user.generateJWT();
+    expect(user.verifyJWT(token)).toBeTruthy();
+  });
+
+  test("invalid JWT token", () => {
+    expect(user.verifyJWT("False Token")).toBeFalsy();
   });
 });

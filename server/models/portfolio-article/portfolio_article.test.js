@@ -1,5 +1,5 @@
 const mockMongoDB = require("../../utils/mockDB");
-const PortfolioArticle = require("./portfolioArticle");
+const PortfolioArticle = require("./portfolio_article");
 
 let article;
 const samplePortfolioArticle = {

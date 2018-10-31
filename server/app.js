@@ -1,9 +1,10 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config();
 
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/user/user");
+const userRouter = require("./routes/user_api");
 
 const isInProduction = process.env.WORK_STATUS === "production";
 if (isInProduction === false) {
@@ -26,7 +27,7 @@ mongoose.connection.on("disconnected", function() {
 });
 
 app.use(express.json());
-
+app.use("/api/user", userRouter);
 //eslint-disable-next-line
 app.post("/", async function(req, res, next) {
   const user = new User();
