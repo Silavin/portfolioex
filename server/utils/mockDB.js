@@ -8,7 +8,6 @@ let mongoServer;
 const setUpServer = async () => {
   mongoServer = new mockMongoDB();
   const mongoURI = await mongoServer.getConnectionString();
-
   const fakeDBEstablished = () => {
     //eslint-disable-next-line
     console.log("The mock database has been setup");

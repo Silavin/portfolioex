@@ -1,0 +1,117 @@
+.BodyOfHome{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url("./Island-Beauty2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(1);
+}
+
+@media (max-width: 767px){
+    
+    .GreetingBody{
+        margin: 6em 8% 0em 8%;
+        color: whitesmoke;
+        text-shadow: 2px 2px 4px black;
+    }
+
+    .Greetings{
+        font-weight:750;
+        font-size: 2em;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .UnderGreetings{
+        font-weight: 200;
+        font-size: 1.5em;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .ButtonStyle{
+        background: rgba(0, 0, 0, 0);
+        color: rgb(220, 220, 220, 0.9) !important;
+        border: 1px solid rgb(220, 220, 220, 0.9);
+        padding: 0.3em;
+        margin: 0.5em 0em 0.5em 0em;
+        font-size: 1.6em;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+    }
+
+}
+
+@media (min-width:768px) and (max-width:1024px){
+    
+    
+    .GreetingBody{
+        margin: 7em 8% 0em 8%;
+        color: whitesmoke;
+        text-shadow: 2px 2px 4px black;
+    }
+
+    .Greetings{
+        font-weight:750;
+        font-size: 2.2em;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .UnderGreetings{
+        font-weight: 200;
+        font-size: 1.7em;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .ButtonStyle{
+        background: rgba(0, 0, 0, 0);
+        color: rgb(220, 220, 220, 0.9);
+        border: 1px solid rgb(220, 220, 220, 0.9);
+        padding: 0.3em;
+        margin: 1.2em 0em 0em 0em;
+        font-size: 1.8em;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+    }
+
+}
+
+@media (min-width:1025px){
+    
+    .GreetingBody{
+        margin: 8% 8% 0em 10%;
+        color: whitesmoke;
+        text-shadow: 2px 2px 4px black;
+    }
+
+    .Greetings{
+        font-weight:750;
+        font-size: 2.2vw;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .UnderGreetings{
+        font-weight: 200;
+        font-size: 1.7vw;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .ButtonStyle{
+        background: rgba(0, 0, 0, 0);
+        color: rgb(220, 220, 220, 0.9);
+        border: 1px solid rgb(220, 220, 220, 0.9);
+        padding: 0.3em;
+        margin: 1.2em 0em 0em 0em;
+        font-size: 1.8vw;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+    }
+}

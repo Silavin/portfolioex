@@ -36,9 +36,36 @@ async function authenticateUser(req, res) {
   }
 
   const token = user.generateJWT();
-  return res.json({
-    user: { username: username, email: email, token: token }
+  res.cookie("jwt", token, {
+    httpOnly: true,
+    sameSite: true
+  });
+
+  return res.status(status.OK).json({
+    username: username,
+    email: email
   });
 }
 
-module.exports = { registerNewUser, authenticateUser };
+async function deleteUser(req, res) {
+  const { username, email, password } = req.body;
+
+  let user;
+  if (username) {
+    user = await User.findOneAndDelete({ username: username });
+  } else {
+    if (email) {
+      user = await User.findOneAndDelete({ email: email });
+    }
+  }
+  if (!user || !user.validPassword(password)) {
+    return res.status(status.UNAUTHORIZED).json({
+      error: { message: "Login is invalid" }
+    });
+  }
+  return res
+    .status(status.OK)
+    .json({ message: "User has been successfully deleted" });
+}
+
+module.exports = { registerNewUser, authenticateUser, deleteUser };

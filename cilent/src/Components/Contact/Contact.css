@@ -1,0 +1,93 @@
+#ContactMe{
+    padding-top: 15px;
+    color: #555;
+}
+
+/* Grid for list of Possible Contacts */
+.DeclareGridForContact{
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 100px 200px;
+
+}
+
+/* Left Side of Grid */
+.ContactEmail{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.ContactLinkedin{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.ContactGithub{
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.ContactFacebook{
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+
+.ContactTwitter{
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+}
+
+/* Right Side of Grid */
+
+.GridContactIconMail a{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    color: #444;
+}
+
+.GridContactIconLinkedin a{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    color: #444;
+}
+
+.GridContactIconGithub a{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    color: #444;
+}
+
+.GridContactIconFacebook a{
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    color: #444;
+}
+
+.GridContactIconTwitter a{
+
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+    color: #444;
+}
+
+.GridContactIconMail:hover a{
+    color: rgba(13,13,145,.8);
+}
+
+.GridContactIconLinkedin:hover a{
+    color: rgba(13,13,145,.8);
+}
+
+.GridContactIconGithub:hover a{
+    color: rgba(13,13,145,.8);
+}
+
+.GridContactIconFacebook:hover a{
+    color: rgba(13,13,145,.8);
+}
+
+.GridContactIconTwitter:hover a{
+    color: rgba(13,13,145,.8);
+}
+

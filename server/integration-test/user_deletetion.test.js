@@ -12,7 +12,7 @@ let mockUser = {
 };
 
 beforeAll(mockMongoDB.setUpServer);
-beforeAll(() => {
+beforeAll(async () => {
   const user = new User();
   const { username, fullname, email, password } = mockUser;
 
@@ -21,27 +21,19 @@ beforeAll(() => {
   user.email = email;
   user.setPassword(password);
 
-  user.save();
+  await user.save();
 });
 afterAll(mockMongoDB.tearDown);
 
-describe("User Authentication", () => {
-  test("User login successful", async () => {
+describe("User Deletetion", () => {
+  test("user is successfully deleted", async () => {
     const { username, email, password } = mockUser;
-
     const response = await request(app)
-      .post("/api/user/login")
-      .send({
-        username,
-        email,
-        password
-      });
+      .del("/api/user/delete")
+      .send({ username, email, password });
 
     const userJson = response.body;
-    expect(response.statusCode).toBe(status.OK);
-    expect(userJson).toBeDefined();
-    expect(userJson.email).toEqual(email);
-    expect(userJson.token).toBeDefined();
-    expect(userJson.token).not.toBeNull();
+    expect(response.status).toBe(status.OK);
+    expect(userJson.message).toBe("User has been successfully deleted");
   });
 });

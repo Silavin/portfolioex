@@ -1,32 +1,147 @@
-.App {
-  text-align: center;
+.Font{
+    font-family: 'Lato', 'Roboto', sans-serif;
+    
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+/* For any span which requires Bold */
+.Bold{
+    font-weight: 700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Any Button that requires this color */
+.ButtonStyle:hover {
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
 }
 
-.App-link {
-  color: #61dafb;
+/* For Navigation Bar Text */
+#NavTextColorId .StyleNavBarButton:hover a{
+    color: whitesmoke;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ActiveStyleNavBarButton a{
+    color:white !important;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue !important;
+    text-decoration: none !important;
 }
+
+.ActiveStyleNavBarButton {
+    color:white !important;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue !important;
+    text-decoration: none !important;
+}
+
+@media (max-width:767px){
+    #NavTextColorId .StyleNavBarButton a{
+        color: rgb(210, 210, 210);
+        display: block;
+        font-size: 14px;
+        padding: 7px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px){
+    #NavTextColorId .StyleNavBarButton a{
+        color: rgb(210, 210, 210);
+        display: inline-block;
+        font-size: 15px;
+
+    }
+
+}
+
+@media (min-width:1025px){
+    #NavTextColorId .StyleNavBarButton a{
+        color: rgb(210, 210, 210);
+
+    }
+
+    .StyleNavBarButton{
+        color: rgb(210, 210, 210);
+
+    }
+
+    .StyleNavBarButton:active{
+        color: whitesmoke;
+
+    }
+
+    .StyleNavBarButton:hover{
+        color: whitesmoke;
+
+    }
+}
+
+
+/* For Navigation Bar Icons */
+.ClickableLinks{
+    color: rgb(210, 210, 210);
+}
+
+.ClickableLinks:hover{
+    color: whitesmoke;
+}
+
+/* For the content bodies in relations to the width of viewing screen*/
+@media (max-width: 1024px){
+
+    .BodyContent{
+        /* A style implemented for all body content components */
+        background-color: white;
+        height: calc(100% - 300px);
+        position: relative;
+        padding-left: 3vw;
+        padding-right: 3vw;
+        color: #444;
+    }
+
+    .ContentFiller{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 490px;
+        bottom: 0;
+        background-color:white;
+        z-index: -1;
+    }
+
+}
+
+@media (min-width: 1025px){
+    
+    .BodyContent{
+        /* A style implemented for all body content components */
+        margin-left: 20%;
+        padding-top: 4%;
+        padding-left: 1%;
+        padding-right: 3%;
+        width:55%;
+        background-color: white;
+        z-index: 3;
+        height: 100%;
+        color: #444;
+        
+    }
+    
+    .LeftFiller{
+        /* A style to block out the photo background. */
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 20%;
+        background-color:rgb(255, 255, 245);
+    }
+
+    .ContentFiller{
+        position: fixed;
+        left: 20%;
+        top: 0;
+        bottom: 0;
+        width: 55%;
+        background-color:white;
+        z-index: -1;
+    }
+}
+

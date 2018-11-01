@@ -1,0 +1,154 @@
+#PortfolioHeader{
+    padding-top: 15px;
+    color: .555;
+}
+
+#PortfolioHorizonal{
+    margin-bottom: 0;
+    background-color: rgb(110, 119, 122);
+    height: 1.8px;
+}
+
+
+@media (max-width: 767px ){
+
+    #TimeLineForSmallWidth{
+        margin-top: 2.5em;
+    }
+
+    #PortfolioHorizonal{
+        display:none;
+    }
+
+    #TimeLineForBigWidth{
+        display: none;
+    }
+    
+    #HorizontalLineSmallWidth{
+        margin: 0px 0px 15px 0px;
+    }
+
+    .TimeLineText{
+        font-size: 12px;
+    }
+    
+    .ContentTitle{
+        font-size:20px;
+        line-height: 1.0;
+    }
+
+    .ContentDescription{
+        font-weight: 400;
+        line-height: 1;
+        margin: 20px 0px 10px 0px;
+    }
+    
+    .ReadMoreButton{
+        margin: 10px 0px 0px 0px;
+        font-size: 12px;
+        background-color: rgba(0, 0, 202, 0.8);
+        padding: 0.9em;
+        border: none;
+        color: whitesmoke;
+        font-weight: 400;
+    }
+
+    .TechnologyTag{
+        margin: 10px 0px 10px 0px;
+    }
+
+    .TechListButtonStyle{
+        font-size: 10px;
+        margin: 0px 2px 15px 0px;
+        padding: 5px;
+        background-color: rgba(0, 0, 202, 0.6);
+        color:rgba(214, 214, 214, 0.8);
+        border: none;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px){
+
+    #TimeLineForSmallWidth{
+        display: none;
+    }
+
+    .TimeLineText{
+        font-size: 16px;
+    }
+    
+    .ContentDescription{
+        font-weight: 400;
+        margin: 20px 0px 10px 0px;
+    }
+    
+    .ReadMoreButton{
+        margin: 10px 0px 0px 0px;
+        font-size: 16px;
+        background-color: rgba(0, 0, 202, 0.8);
+        padding: 0.9em;
+        border: none;
+        color: whitesmoke;
+        font-weight: 400;
+    }
+
+    .TechnologyTag{
+        margin: 10px 0px 10px 0px;
+        font-size: 14px;
+    }
+
+    .TechListButtonStyle{
+        font-size: 14px;
+        margin: 0px 4px 15px 0px;
+        padding: 7px;
+        background-color: rgba(0, 0, 202, 0.6);
+        color:rgba(214, 214, 214, 0.8);
+        border: none;
+    }
+}
+
+@media (min-width: 1025px ){
+    
+    #TimeLineForSmallWidth{
+        display: none;
+    }
+    
+    .TimeLineText{
+        font-size: 16px;
+    }
+    
+    .ContentTitle{
+        font-size: 24px;
+        line-height: 1.0;
+    }
+
+    .ContentDescription{
+        font-weight: 400;
+        line-height: 1;
+        margin: 20px 0px 10px 0px;
+    }
+    
+    .ReadMoreButton{
+        margin: 10px 0px 0px 0px;
+        font-size: 16px;
+        background-color: rgba(0, 0, 202, 0.8);
+        padding: 0.9em;
+        border: none;
+        color: whitesmoke;
+        font-weight: 400;
+    }
+
+    .TechnologyTag{
+        margin: 10px 0px 10px 0px;
+        font-size: 14px;
+    }
+    
+    .TechListButtonStyle{
+        font-size: 14px;
+        margin: 0px 4px 15px 0px;
+        padding: 7px;
+        background-color: rgba(0, 0, 202, 0.6);
+        color:rgba(214, 214, 214, 0.8);
+        border: none;
+    }
+}

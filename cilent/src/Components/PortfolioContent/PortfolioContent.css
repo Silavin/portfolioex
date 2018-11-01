@@ -1,0 +1,28 @@
+#PortfolioContentHeader{
+    padding-top: 15px;
+    color: #555;
+}
+
+@media (max-width: 767px ){
+
+    .TechListButtonStyle2{
+        font-size: 10px;
+        margin: 0px 2px 15px 0px;
+        padding: 5px;
+        background-color: rgba(0, 0, 202, 0.6);
+        color:rgba(214, 214, 214, 0.8);
+        border: none;
+    }
+}
+
+@media (min-width:768px){
+
+    .TechListButtonStyle2{
+        font-size: 14px;
+        margin: 0px 4px 15px 0px;
+        padding: 7px;
+        background-color: rgba(0, 0, 202, 0.6);
+        color:rgba(214, 214, 214, 0.8);
+        border: none;
+    }
+}

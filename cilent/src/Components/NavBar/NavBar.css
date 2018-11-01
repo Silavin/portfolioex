@@ -1,0 +1,227 @@
+.BackgroundOfNav{
+    position: fixed;
+    display:block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url("./beautiful-forest-art2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(1);
+}
+
+.NarBarStyle{
+    background-color: rgba(13,13,145,.8);
+    color: whitesmoke;
+}
+
+.navbar-toggle{
+    border: 1px solid white;
+}
+
+.navbar-brand{
+    color: whitesmoke !important;
+}
+
+.icon-bar{
+    background-color: rgba(245, 245, 245, 0.75) !important;
+}
+
+.TopProfile{
+    display: none;
+}
+
+.RightPanel{
+    display: none;
+}
+
+@media (max-width:767px){
+    
+    .NarBarStyle{
+        background-color: rgba(13,13,145,.8);
+        color: whitesmoke;
+        border-radius: 0; 
+        border-top: 1px solid rgba(255,255,255,.2);
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        border-left: 0;
+        border-right: 0;
+        margin:0;
+    }
+
+    .TopProfile{
+        display: block;
+        background-color: rgba(13,13,145,.8);
+        text-align: center;
+        padding: 2em;
+        color: whitesmoke;
+        
+    }
+
+    .ProfilePhoto{
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+        width: 152px;
+        border-radius:50%;
+    }
+
+    .Identity{
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 1.5;
+        font-weight: 900;
+        margin-top: 0.6em;
+        margin-bottom: 0;
+        color: whitesmoke;
+    }
+
+    .IdentityRole{
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 1.2;
+        margin:0;
+        color: whitesmoke;
+    }
+
+}
+
+@media (min-width:768px) and (max-width:1024px){
+    
+    .NarBarStyle{
+        background-color: rgba(13,13,145,.8);
+        color: whitesmoke;
+        border-radius: 0; 
+        border-top: 1px solid rgba(255,255,255,.2);
+        border-bottom: 1px solid  rgba(255,255,255,.2);
+        border-left: 0;
+        border-right: 0;
+        margin:0;
+    }
+
+    .TopProfile{
+        display: block;
+        background-color: rgba(13,13,145,.8);
+        text-align: center;
+        padding: 3em;
+        color: whitesmoke;
+    }
+
+    .ProfilePhoto{
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+        width: 25%;
+        border-radius:50%;
+    }
+
+    .Identity{
+        display: block;
+        text-transform: uppercase;
+        font-size: 2em;
+        line-height: 0.8;
+        font-weight: 900;
+        padding-top: 14px;
+        margin-top: 0.8em;
+        margin-bottom: 0;
+        color: whitesmoke;
+    }
+
+    .IdentityRole{
+        display: block;
+        text-transform: uppercase;
+        font-size: 1.65em;
+        line-height: 0.8;
+        margin:0;
+        color: whitesmoke;
+    }
+
+}
+
+@media (min-width: 1025px){
+    .NarBarStyle{
+        display: none;
+    }
+
+    .RightPanel{
+        display: block;
+        position: fixed;
+        right:0;
+        top:0;
+        height: 100vh;
+        width: 25%;
+        background-color:  rgba(13,13,145,.8);
+        box-sizing: border-box;
+        color: whitesmoke;
+    }
+
+    .RightPanelProfile{
+        padding: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .ProfilePhotoShadow{
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+        width: 57%;
+        border-radius:50%;
+        box-shadow: 0px 0px 40px 0px  rgba(0, 0, 0, 0.4);
+        margin-bottom: 2em;
+    }
+
+    .ProfilePhoto{
+        margin-left:auto;
+        margin-right:auto;
+        width: 100%;
+        border-radius:50%;
+    }
+
+    .Identity{
+        display:inline-block;
+        text-transform: uppercase;
+        font-size: 1.6vw;
+        line-height: 1.4;
+        font-weight: 900;
+        margin:0;
+        color: whitesmoke;
+    }
+
+    .IdentityRole{
+        display:inline-block;
+        text-transform: uppercase;
+        font-size: 1.4vw;
+        line-height: 1.5;
+        margin:0;
+        color: whitesmoke;
+    }
+
+    .DirectionalLinksSpacing{
+        padding-top: 4vh;
+    }
+
+    .DirectionalLinks{
+        display:block;
+        margin: 0;
+        padding-left: 8%;
+        line-height: 1.6;
+        font-size: 1.25vw;
+        padding-bottom: 1vw
+    }
+
+    .RightPanelFooter{
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin-bottom: 10%;
+        font-size: 1.1vw;
+    }
+}

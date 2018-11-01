@@ -2,32 +2,16 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 const User = require("./models/user/user");
 const userRouter = require("./routes/user_api");
-
-const isInProduction = process.env.WORK_STATUS === "production";
-if (isInProduction === false) {
-  mongoose.connect(
-    process.env.MONGODB_URI,
-    { useNewUrlParser: true }
-  );
-}
-mongoose.connection.on("connected", function() {
-  //eslint-disable-next-line
-  console.log("Mongoose default connection open to " + process.env.MONGODB_URI);
-});
-mongoose.connection.on("error", function(err) {
-  //eslint-disable-next-line
-  console.log("Mongoose default connection error: " + err);
-});
-mongoose.connection.on("disconnected", function() {
-  //eslint-disable-next-line
-  console.log("Mongoose default connection disconnected");
-});
+const portfolioArticleRouter = require("./routes/portfolio_article_api");
 
 app.use(express.json());
+app.use(cookieParser());
+
 app.use("/api/user", userRouter);
+app.use("/api/portfolio-article", portfolioArticleRouter);
 //eslint-disable-next-line
 app.post("/", async function(req, res, next) {
   const user = new User();
