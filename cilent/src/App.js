@@ -5,7 +5,7 @@ import AboutMe from "./Components/AboutMe";
 import Skills from "./Components/Skills";
 import Portfolio from "./Components/Portfolio";
 import PortfolioContent from "./Components/PortfolioContent";
-import Admin from "./Components/Admin"
+import Admin from "./Components/Admin";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 // Photoimport
@@ -244,7 +244,7 @@ class App extends Component {
                 />
               );
             })}
-            <Route exact path="/Admin" component={Admin}/>
+            <Route exact path="/Admin" component={Admin} />
             {/* This is only for unfound urls. */}
             <Route component={NoMatch} />
           </Switch>

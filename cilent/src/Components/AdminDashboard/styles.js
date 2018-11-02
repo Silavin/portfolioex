@@ -1,23 +1,6 @@
 import BackgroundPhoto from "../../Photos/GeneralUse/bg.png";
 
 export const styles = theme => ({
-  adminNavBar: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "56px",
-    backgroundColor: "black"
-  },
-  adminPanel: {
-    color: "#ecf0f1",
-    display: "block",
-    paddingLeft: "24px"
-  },
-  avatar: {
-    marginRight: "24px",
-    height: "48px",
-    width: "48px"
-  },
   articlesHeading: {
     margin: "4% 0px 4% 0px",
     textAlign: "center"
