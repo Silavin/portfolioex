@@ -33,8 +33,8 @@ class AdminNavBar extends PureComponent {
   };
 
   handleLogout = () => {
-    const { toggleLogin } = this.props;
-    toggleLogin();
+    const { onLogout } = this.props;
+    onLogout();
   };
 
   render() {

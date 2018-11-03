@@ -62,7 +62,9 @@ class Admin extends Component {
       .then(() => {
         this.toggleLogin();
       })
-      .catch(err => {});
+      .catch(() => {
+        "No cookies found for login";
+      });
   };
   componentDidMount() {
     this.jwtCheck();
@@ -94,6 +96,16 @@ class Admin extends Component {
 
   // For Logout
 
+  onLogout = () => {
+    axios.post("/api/user/logout").then(response => {
+      const done = "done";
+      if (response.status === 200 && response.data.status === done) {
+        this.toggleLogin();
+      }
+    });
+  };
+
+  // For Render
   renderAdmin = () => {
     const { loggedIn, userIdentity, password } = this.state;
     return loggedIn ? (
@@ -116,7 +128,7 @@ class Admin extends Component {
     const { loggedIn } = this.state;
     return (
       <main>
-        {loggedIn && <AdminNavBar toggleLogin={this.toggleLogin} />}
+        {loggedIn && <AdminNavBar onLogout={this.onLogout} />}
         <Switch>
           <Route exact path={match.url + "/"} render={this.renderAdmin} />
           {loggedIn === false && <Route render={this.noMatch} />}

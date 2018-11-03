@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwtMiddleware = require("../middleware/jwt_middleware");
+const status = require("http-status");
 const handleAsyncError = require("express-async-wrap");
 const {
   registerNewUser,
@@ -19,7 +20,7 @@ router.post("/signup", handleAsyncError(registerNewUser));
 router.post("/login", handleAsyncError(authenticateUser));
 //eslint-disable-next-line
 router.use("/login", (err, req, res, next) => {
-  res.status(401).send(err.errors);
+  res.status(status.UNAUTHORIZED).send(err.errors);
 });
 
 router.get(
@@ -29,13 +30,13 @@ router.get(
 );
 //eslint-disable-next-line
 router.use("/jwt-check", (err, req, res, next) => {
-  res.status(401).send(err.errors);
+  res.status(status.UNAUTHORIZED).send(err.errors);
 });
 
 router.post("/logout", jwtMiddleware.required, handleAsyncError(logoutUser));
 //eslint-disable-next-line
 router.use("/logout", (err, req, res, next) => {
-  res.send(err.errors);
+  res.status(status.METHOD_NOT_ALLOWED).send(err.errors);
 });
 
 router.delete("/delete", handleAsyncError(deleteUser));
