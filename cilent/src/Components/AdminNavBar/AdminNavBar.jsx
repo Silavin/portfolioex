@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
@@ -29,6 +30,11 @@ class AdminNavBar extends PureComponent {
     }
 
     this.setState({ open: false });
+  };
+
+  handleLogout = () => {
+    const { toggleLogin } = this.props;
+    toggleLogin();
   };
 
   render() {
@@ -67,7 +73,9 @@ class AdminNavBar extends PureComponent {
                 <Paper>
                   <ClickAwayListener onClickAway={this.handleClose}>
                     <MenuList>
-                      <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                      <Link to="/Admin">
+                        <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
+                      </Link>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>

@@ -16,6 +16,7 @@
     "supertest": "^3.3.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "express-async-wrap": "^1.0.0",
     "http-status": "^1.2.0"
   }

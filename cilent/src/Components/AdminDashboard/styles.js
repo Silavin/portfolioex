@@ -36,10 +36,10 @@ export const styles = theme => ({
   },
   background: {
     position: "absolute",
-    top: "-8px",
-    bottom: "-8px",
-    left: "-8px",
-    right: "-8px",
+    top: "0",
+    bottom: "0",
+    left: "0",
+    right: "0",
     zIndex: "-2",
     backgroundImage: `url(${BackgroundPhoto})`
   }

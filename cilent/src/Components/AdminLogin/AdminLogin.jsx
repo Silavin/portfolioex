@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
@@ -10,30 +11,32 @@ import { styles } from "./styles";
 
 import SilavinPhoto from "../../Photos/GeneralUse/SilavinEX.png";
 
-class AdminLogin extends Component {
+class AdminLogin extends PureComponent {
   static propTypes = {
     classes: PropTypes.object.isRequired
   };
-  state = {
-    userIdentity: "",
-    password: ""
-  };
 
-  updateUserIdentity = e => {
-    this.setState({ userIdentity: e.target.value });
-  };
-  updatePassword = e => {
-    this.setState({ password: e.target.value });
-  };
+  constructor(props) {
+    super(props);
+    window.onkeypress = this.onKeyPressLogin;
+  }
 
-  onSubmit = () => {
-    const { userIdentity, password } = this.state;
-    console.log(userIdentity + password);
+  onKeyPressLogin = keypressed => {
+    if (keypressed.key === "Enter") {
+      const { onSubmitLogin } = this.props;
+      onSubmitLogin();
+    }
   };
 
   render() {
-    const { classes } = this.props;
-    const { userIdentity, password } = this.state;
+    const {
+      classes,
+      updateUserIdentity,
+      updatePassword,
+      onSubmitLogin,
+      userIdentity,
+      password
+    } = this.props;
     return (
       <main className={classes.loginContainer}>
         <Paper className={classes.loginPaper}>
@@ -50,7 +53,7 @@ class AdminLogin extends Component {
               className={classes.textField}
               placeholder="Username or Email"
               value={userIdentity}
-              onChange={this.updateUserIdentity}
+              onChange={updateUserIdentity}
               margin="dense"
             />
 
@@ -61,17 +64,23 @@ class AdminLogin extends Component {
               type="password"
               placeholder="Password"
               value={password}
-              onChange={this.updatePassword}
+              onChange={updatePassword}
               margin="dense"
             />
-
-            <Button
-              variant="contained"
-              onClick={this.onSubmit}
-              className={classes.loginButton}
-            >
-              Login
-            </Button>
+            <Link to="/Admin">
+              <Button
+                variant="contained"
+                onClick={onSubmitLogin}
+                onKeyPress={e => {
+                  console.log("Enter key pressed");
+                  if (e.key === "Enter") {
+                  }
+                }}
+                className={classes.loginButton}
+              >
+                Login
+              </Button>
+            </Link>
           </form>
         </Paper>
 

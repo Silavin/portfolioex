@@ -20,5 +20,9 @@ app.post("/", async function(req, res, next) {
   await user.save();
   res.json({ message: "Hello" });
 });
+//eslint-disable-next-line
+app.use("/", function(err, req, res, next) {
+  res.status(500).json({ message: "An error has occured." });
+});
 
 module.exports = app;

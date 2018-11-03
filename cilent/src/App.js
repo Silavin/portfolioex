@@ -204,7 +204,7 @@ class App extends Component {
       <div>
         <h2>
           Error 404. Page is not found. <code>{location.pathname}</code> is
-          false.{" "}
+          false.
         </h2>
       </div>
     );
@@ -244,7 +244,7 @@ class App extends Component {
                 />
               );
             })}
-            <Route exact path="/Admin" component={Admin} />
+            <Route path="/Admin" component={Admin} />
             {/* This is only for unfound urls. */}
             <Route component={NoMatch} />
           </Switch>

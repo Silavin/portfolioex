@@ -5,7 +5,9 @@ export const styles = () => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh"
+    height: "100vh",
+    position: "relative",
+    overflow: "hidden"
   },
   loginPaper: {
     boxSizing: "border-box",
@@ -27,15 +29,17 @@ export const styles = () => ({
   form: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "flex-end",
     padding: "20% 10% 0% 10%",
     zIndex: "1"
   },
   textField: {
-    marginTop: "24px"
+    marginTop: "24px",
+    width: "100%"
   },
   loginButton: {
     width: "18px",
-    margin: "48px 0px 24px auto",
+    margin: "48px auto 24px auto",
     color: "white",
     backgroundColor: "purple",
     "&:hover": {
@@ -50,6 +54,7 @@ export const styles = () => ({
     left: "-8px",
     right: "-8px",
     zIndex: "-2",
+    backgroundColor: "black",
     backgroundImage: `url(${BackgroundPhoto})`,
     filter: "blur(4px)",
     boxShadow: "inset 0px 0px 20px 20px"

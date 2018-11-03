@@ -47,6 +47,26 @@ async function authenticateUser(req, res) {
   });
 }
 
+async function checkUserHasLoggedin(req, res) {
+  const userInCookie = req.user;
+  const username = userInCookie.username;
+  const email = userInCookie.email;
+  const userId = userInCookie.userid;
+  const user = await User.findById(userId);
+  if (user) {
+    return res.status(status.OK).json({
+      message: "Cookies accepted",
+      username: username,
+      email: email
+    });
+  }
+}
+
+async function logoutUser(req, res) {
+  res.clearCookie("jwt");
+  res.status(status.OK).json({ status: "done" });
+}
+
 async function deleteUser(req, res) {
   const { username, email, password } = req.body;
 
@@ -68,4 +88,10 @@ async function deleteUser(req, res) {
     .json({ message: "User has been successfully deleted" });
 }
 
-module.exports = { registerNewUser, authenticateUser, deleteUser };
+module.exports = {
+  registerNewUser,
+  authenticateUser,
+  deleteUser,
+  checkUserHasLoggedin,
+  logoutUser
+};
