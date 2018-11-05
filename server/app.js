@@ -9,9 +9,11 @@ const portfolioArticleRouter = require("./routes/portfolio_article_api");
 const path = require("path");
 
 const staticFiles = express.static(path.join(__dirname, "../client/build"));
-const isInProduction = process.env.WORK_STATUS === "production";
+const isInProduction = process.env.NODE_ENV === "production";
 
-app.use(staticFiles);
+if (isInProduction) {
+  app.use(staticFiles);
+}
 
 app.use(express.json());
 app.use(cookieParser());

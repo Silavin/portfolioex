@@ -2,7 +2,7 @@ require("dotenv").config();
 const app = require("./app");
 const mongoose = require("mongoose");
 
-const isInProduction = process.env.WORK_STATUS === "production";
+const isInProduction = process.env.NODE_ENV === "production";
 if (isInProduction) {
   mongoose.connect(
     process.env.MONGODB_URI,
@@ -23,15 +23,7 @@ mongoose.connection.on("disconnected", function() {
 });
 
 //eslint-disable-next-line
-const server = app.listen(
-  process.env.WORK_STATUS === process.env.DEVELOPMENT ? 4000 : process.env.PORT,
-  () => {
-    if (process.env.WORK_STATUS === process.env.DEVELOPMENT) {
-      //eslint-disable-next-line
-      console.log("Server active on port 4000");
-    } else {
-      //eslint-disable-next-line
-      console.log(`Server active on port ${process.env.PORT}`);
-    }
-  }
-);
+const server = app.listen(process.env.PORT || 4000, () => {
+  //eslint-disable-next-line
+  console.log(`Server active on port ${process.env.PORT || 4000}`);
+});
