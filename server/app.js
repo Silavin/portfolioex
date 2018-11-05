@@ -11,9 +11,7 @@ const path = require("path");
 const staticFiles = express.static(path.join(__dirname, "../client/build"));
 const isInProduction = process.env.WORK_STATUS === "production";
 
-if (isInProduction) {
-  app.use(staticFiles);
-}
+app.use(staticFiles);
 
 app.use(express.json());
 app.use(cookieParser());

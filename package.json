@@ -10,7 +10,7 @@
     "test:watch": "jest --watch",
     "build": "cd client&&npm run build",
     "heroku-postbuild": "npm run build",
-    "start": "concurrently --kill-others-on-fail \"npm run:prod:server\" \"npm run:client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run start:prod:server\" \"npm run start:client\"",
     "start:prod:server": "cd server&&npm run start",
     "start:client": "cd client&&npm run start",
     "start:dev:server": "cd server&&npm run dev"
