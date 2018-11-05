@@ -6,6 +6,14 @@ const cookieParser = require("cookie-parser");
 const User = require("./models/user/user");
 const userRouter = require("./routes/user_api");
 const portfolioArticleRouter = require("./routes/portfolio_article_api");
+const path = require("path");
+
+const staticFiles = express.static(path.join(__dirname, "../client/build"));
+const isInProduction = process.env.WORK_STATUS === "production";
+
+if (isInProduction) {
+  app.use(staticFiles);
+}
 
 app.use(express.json());
 app.use(cookieParser());

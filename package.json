@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "concurrently": "^4.0.1",
     "express-async-wrap": "^1.0.0",
     "http-status": "^1.2.0"
   }
