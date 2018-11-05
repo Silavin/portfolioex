@@ -49,9 +49,9 @@ export const styles = () => ({
   },
   background: {
     position: "absolute",
-    top: "-8px",
-    bottom: "-8px",
-    left: "-8px",
+    top: "0px",
+    bottom: "0px",
+    left: "0px",
     right: "-8px",
     zIndex: "-2",
     backgroundColor: "black",
