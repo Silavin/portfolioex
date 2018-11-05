@@ -137,7 +137,7 @@ class Admin extends Component {
             path={match.url + "/Dashboard"}
             component={AdminDashboard}
           />
-          <Route exact path={match.url + "/Post/:id"} component={AdminEditor} />
+          <Route exact path={match.url + "/Post"} component={AdminEditor} />
           <Route exact path={match.url + "/Edit/:id"} component={AdminEditor} />
         </Switch>
       </main>

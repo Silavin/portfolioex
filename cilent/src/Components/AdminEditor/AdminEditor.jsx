@@ -125,9 +125,7 @@ class PostingPage extends Component {
           />
         </header>
 
-        <Paper>
-          <Trumbowyg updateHtmlFile={this.updateHtmlFile} />
-        </Paper>
+        <Trumbowyg updateHtmlFile={this.updateHtmlFile} />
 
         {openExternalWindow && (
           <ExternalWindow

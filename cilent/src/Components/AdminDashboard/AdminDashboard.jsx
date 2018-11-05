@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Badge from "@material-ui/core/Badge";
 import Typography from "@material-ui/core/Typography";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 
-import AdminNavBar from "../AdminNavBar";
 import AdminArticleList from "../AdminArticleList";
 
 import { styles } from "./styles";
 
-class Admin extends Component {
+class AdminDashboard extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
@@ -43,9 +43,11 @@ class Admin extends Component {
           <Badge
             className={classes.margin}
             badgeContent={
-              <IconButton className={classes.addButton}>
-                <AddIcon className={classes.addIcon} />
-              </IconButton>
+              <Link to="/Admin/Post">
+                <IconButton className={classes.addButton}>
+                  <AddIcon className={classes.addIcon} />
+                </IconButton>
+              </Link>
             }
             color="secondary"
           >
@@ -63,4 +65,4 @@ class Admin extends Component {
   }
 }
 
-export default withStyles(styles)(Admin);
+export default withStyles(styles)(AdminDashboard);

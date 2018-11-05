@@ -5,6 +5,7 @@ import "trumbowyg/dist/ui/trumbowyg.min.css";
 import svgIcons from "trumbowyg/dist/ui/icons.svg";
 import "trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.min.css";
 import "trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js";
+import "trumbowyg/dist/plugins/base64/trumbowyg.base64";
 
 export default class Trumbowyg extends Component {
   shouldComponentUpdate() {
@@ -20,17 +21,19 @@ export default class Trumbowyg extends Component {
           ["strong", "em", "del"],
           ["superscript", "subscript"],
           ["link"],
-          ["insertImage"],
+          "insertImage",
           ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull"],
           ["unorderedList", "orderedList"],
           ["horizontalRule"],
           ["foreColor", "backColor"],
           ["removeformat"],
-          ["fullscreen"]
+          ["fullscreen"],
+          ["base64"]
         ],
         semantic: false,
+        resetCss: true,
         autogrow: false,
-        imageWidthModalEdit: true,
+        imageWidthModalEdit: false,
         svgPath: svgIcons
       })
       .on("tbwinit", function() {
