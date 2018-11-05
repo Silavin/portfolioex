@@ -3,7 +3,7 @@ const app = require("./app");
 const mongoose = require("mongoose");
 
 const isInProduction = process.env.WORK_STATUS === "production";
-if (isInProduction === false) {
+if (isInProduction) {
   mongoose.connect(
     process.env.MONGODB_URI,
     { useNewUrlParser: true }
