@@ -6,7 +6,9 @@
   "scripts": {
     "gc": "git add *&&git add .&&git commit -m",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "build": "concurrently \"cd client && npm run start\"",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Silavin",
   "license": "Not for distrubtion and sales.",
