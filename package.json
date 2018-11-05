@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "gc": "git add *&&git add .&&git commit -m",
+    "install": "concurrently \"cd client&&npm install\" \"cd server&&npm install \"",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "cd client&&npm run build",
