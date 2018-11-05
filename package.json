@@ -7,7 +7,7 @@
     "gc": "git add *&&git add .&&git commit -m",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "concurrently --kill-others-on-fail \"npm run:prod:server\" \"npm run:client\"",
+    "build": "cd client&&npm run build",
     "heroku-postbuild": "npm run build",
     "start": "concurrently --kill-others-on-fail \"npm run:dev:server\" \"npm run:client\"",
     "start:prod:server": "cd server&&npm run  start",
